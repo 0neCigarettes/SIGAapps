@@ -2,10 +2,10 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 01, 2020 at 12:36 PM
+-- Host: 127.0.0.1
+-- Generation Time: Aug 18, 2020 at 02:10 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,6 +77,13 @@ CREATE TABLE `tbl_spbu` (
   `longi` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_spbu`
+--
+
+INSERT INTO `tbl_spbu` (`id`, `nama`, `alamat`, `kd_kec`, `deskripsi`, `gambar`, `lati`, `longi`) VALUES
+(232, 'Apotek Enggal', 'Jalan Raden Intan No.122 Tanjung Karang Pusat, Pelita, Engal, Kota Bandar Lampung, Lampung 35213', '35127', 'Open AT:\r\nMonday, 7AM–12AM\r\nTuesday, 7AM–12AM\r\nWednesday, 7AM–12AM\r\nThursday, 7AM–12AM\r\nFriday, 7AM–12AM\r\nSaturday, 7AM–12AM\r\nSunday, 7AM–12AM', 'apotek_enggal.jpg', -5.4202781, 105.2578988);
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +107,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nama`, `password`, `username`, `email`, `photo`, `level`, `ADAD`) VALUES
 (1, 'Hanantri Pustpita Dewi', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'hana@gmail.com', '-', 'admin', '2020-03-25'),
-(2, 'User', '202cb962ac59075b964b07152d234b70', 'user', 'user@gmail.com', '-', 'user', '0000-00-00');
+(2, 'User', '202cb962ac59075b964b07152d234b70', 'user', 'user@gmail.com', '-', 'user', '0000-00-00'),
+(3, 'Bram', '25d55ad283aa400af464c76d713c07ad', '12345678', 'bram@gmail.com', '', 'admin', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -140,13 +148,13 @@ ALTER TABLE `tbl_kecamatan`
 -- AUTO_INCREMENT for table `tbl_spbu`
 --
 ALTER TABLE `tbl_spbu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
