@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 class API extends CI_Controller
 {
 
@@ -16,62 +16,65 @@ class API extends CI_Controller
 
     public function login()
     {
-        $u      = $this -> input -> post('username');
-        $p      = md5($this -> input -> post('password'));
-        $query   = $this -> Query -> getData(array('username'=>$u,'password'=>$p),'users') -> row();
-        if($query):
+        $u      = $this->input->post('username');
+        $p      = md5($this->input->post('password'));
+        $query   = $this->Query->getData(array('username' => $u, 'password' => $p), 'users')->row();
+        if ($query) :
             $data['status'] = true;
-            $data['msg']	= 'berhasil login';
+            $data['msg']    = 'berhasil login';
             $data['user']   = $query;
-        else:
+        else :
             $data['status'] = false;
-            $data['msg']	= 'Cek kembali username atau password anda';
+            $data['msg']    = 'Cek kembali username atau password anda';
         endif;
         echo json_encode($data);
     }
 
     public function registrasi()
     {
-        $nama   = $this -> input -> post('nama');
-        $u      = $this -> input -> post('username');
-        $p      = md5($this -> input -> post('password'));
-        $email  = $this -> input -> post('email');
-        $inputData  = $this -> Query -> inputData(array(
-            'nama'=>$nama,
-            'password'=>$p,
-            'username'=>$u,
-            'email'=>$email,
-            'level'=>'user')
-            ,'users');
-        if($inputData):
+        $nama   = $this->input->post('nama');
+        $u      = $this->input->post('username');
+        $p      = md5($this->input->post('password'));
+        $email  = $this->input->post('email');
+        $inputData  = $this->Query->inputData(
+            array(
+                'nama' => $nama,
+                'password' => $p,
+                'username' => $u,
+                'email' => $email,
+                'level' => 'user'
+            ),
+            'users'
+        );
+        if ($inputData) :
             $data['status'] = true;
-            $data['msg']	= 'berhasil registrasi';
+            $data['msg']    = 'berhasil registrasi';
             $data['user']   = array(
-                'nama'=>$nama,
-                'password'=>$p,
-                'username'=>$u,
-                'email'=>$email,
-                'level'=>'user'
+                'nama' => $nama,
+                'password' => $p,
+                'username' => $u,
+                'email' => $email,
+                'level' => 'user'
             );
-        else:
+        else :
             $data['status'] = false;
-            $data['msg']	= 'Registrasi anda gagal';
+            $data['msg']    = 'Registrasi anda gagal';
         endif;
         echo json_encode($data);
     }
 
     public function getAllDataSpbu()
     {
-        $photoStudio = $this->Query->getDataJoin('tbl_spbu','tbl_kecamatan', 'kd_kec')->result();
-        if($photoStudio):
+        $photoStudio = $this->Query->getDataJoin('tbl_spbu', 'tbl_kecamatan', 'kd_kec')->result();
+        // $photoStudio = $this->Query->getAllData('tbl_spbu')->result();
+        if ($photoStudio) :
             $data['status'] = true;
-            $data['msg']	= 'berhasil memuat';
-            $data['user']   = $photoStudio;
-        else:
+            $data['msg']    = 'berhasil memuat';
+            $data['dataApotek']   = $photoStudio;
+        else :
             $data['status'] = false;
-            $data['msg']	= 'gagal memuat';
+            $data['msg']    = 'gagal memuat';
         endif;
-        echo json_encode($data);
+        echo json_encode($photoStudio);
     }
-
 }
