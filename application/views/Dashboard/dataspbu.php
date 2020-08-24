@@ -97,7 +97,7 @@ if ($edit == true) {
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nama Apotek</label>
-                            <input type="text" value="<?php echo $namaSpbu ?>" name="namaspbu" class="form-control" id="exampleInputEmail1" placeholder="Nama Studio Photo">
+                            <input type="text" value="<?php echo $namaSpbu ?>" name="namaspbu" class="form-control" id="exampleInputEmail1" placeholder="Nama Apotek">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>

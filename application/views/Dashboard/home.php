@@ -56,7 +56,7 @@
 
     for (var i = 0; i < locations.length; i++) {
         var image = <?php echo JSON_encode(base_url('gambar_spbu/')); ?> + locations[i].gambar;
-        var customPopup = "<b>Nama : </b>" + locations[i].nama + "<br><b>Alamat : </b>" + locations[i].alamat + "<br/><img src='" + image + "' align='center' alt='maptime logo gif' width='100px'/>";
+        var customPopup = "<b>Nama : </b>" + locations[i].nama + "<br><b>Deskripsi : </b>" + locations[i].deskripsi + "<br><b>Alamat : </b>" + locations[i].alamat + "<br/><img src='" + image + "' align='center' alt='maptime logo gif' width='100px'/>";
 
         marker = new L.marker([locations[i].lati, locations[i].longi], {
                 icon: greenIcon
